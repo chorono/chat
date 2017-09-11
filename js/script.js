@@ -9,6 +9,10 @@ $(function() {
 
     //表示
     function appearChatText() {
+
+        
+
+        //文字表示
         chatText.forEach(function(texts) {
             var text = '<p>' + texts + '</p>';
             $('.chat-body').append(text);
