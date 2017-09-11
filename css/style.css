@@ -1,0 +1,20 @@
+html,body {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+
+.content {
+    width: 100%;
+}
+
+.chat-body {
+    height: 500px;
+    border: solid 1px #CCC;
+}
