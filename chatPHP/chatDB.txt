@@ -1,0 +1,17 @@
+-- DATABASE
+DROP DATABASE IF EXISTS sql_chat_1;
+CREATE DATABASE sql_chat_1 CHARACTER SET utf8;
+USE sql_chat_1;
+
+-- TABLE
+CREATE TABLE `chattexts` (`id` int AUTO_INCREMENT PRIMARY KEY,`chattext` varchar(128)) ENGINE = InnoDB;
+
+-- RECORDS
+INSERT INTO `chattexts` (`chattext`) VALUES ('sampletext1'),('sampletext2');
+
+
+-- TABLE
+CREATE TABLE `accounts` (`id` int AUTO_INCREMENT PRIMARY KEY,`account` varchar(24), `pass` varchar(24)) ENGINE = InnoDB;
+
+-- RECORDS
+INSERT INTO `accounts` (`account`, `pass`) VALUES ('test1', 'pass1'),('test2', 'pass2');
