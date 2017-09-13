@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(isset($_POST['login'])) {
     $account = $_POST['account'];
     $password = $_POST['password'];
@@ -13,13 +12,14 @@ if(isset($_POST['login'])) {
         exit($e->getMessage());
     }
     
-    $statement = $pdo->query("SELECT * FROM accounts WHERE account = '$account'");
-    if($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        // if($password = $row['password']) {
-            $SESSION['account'] = $account;
-        // }
-
-    }
+    $statement = $pdo->prepare('SELECT * FROM accounts WHERE account = ?');
+    if($statement->execute(array($account))) {
+        while ($row = $statement->fetch()){
+            if($password === $row['password']) {
+                $SESSION['account'] = $account;
+            }
+        }
+    } 
 }
 ?>
 
@@ -35,16 +35,7 @@ if(isset($_POST['login'])) {
 <body>
     <div class="wrapper">
         <header>
-            <!-- デバッグ用 -->
             <?php echo isset($_SESSION['account']) ? '<p>' + h($_SESSION['account']) + '</p>': '' ?>
-            <p><?php echo $account ?></p>
-            <p><?php echo $password ?></p>
-                                        <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC)): ?>
-                                <tr>
-                                    <td><?php echo $row['id']?></td>
-                                    <td><?php echo nl2br(h($row['password']))?></td>
-                                </tr>
-                            <?php endwhile ?>
         </header>
         <article>
             <div class="content">
@@ -52,7 +43,7 @@ if(isset($_POST['login'])) {
                     <h2>ログイン画面</h2>
                 </div>
                 <div class="form-wrapper">
-                    <form action="login.php" method="post" accept-charset="utf-8">
+                    <form action="signin.php" method="post" accept-charset="utf-8">
                         <label for="account">ユーザー名：</label>
                         <input type="text" name="account">
                         <label for="password">パスワード</label>
