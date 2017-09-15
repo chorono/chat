@@ -2,6 +2,13 @@ html,body {
     box-sizing: border-box;
 }
 
+.clearfix :after {
+    content: "";
+    clear: both;
+    display: block;
+
+}
+
 .wrapper {
     max-width: 600px;
     margin: 0 auto;
@@ -12,6 +19,18 @@ html,body {
 
 .content {
     width: 100%;
+}
+
+.nav-left {
+    float: left;
+}
+
+.nav-right {
+    float: right;
+}
+
+.nav-right li {
+    display: inline-block;
 }
 
 .chat-body {
