@@ -6,7 +6,7 @@ if(isset($_POST['login'])) {
     $password = filter_input(INPUT_POST, 'password');
 
     try {
-        $pdo = new PDO('mysql:dbname=sql_chat_1;host=127.0.0.1', 'root', '');
+        $pdo = new PDO('mysql:dbname=sql_chat_1;host=localhost', 'root', 'root');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch (Exception $e) {
@@ -16,9 +16,8 @@ if(isset($_POST['login'])) {
     $statement = $pdo->prepare('SELECT * FROM accounts WHERE account = ?');
     if($statement->execute(array($account))) {
         while ($row = $statement->fetch()){
-            if($password === $row['pass']) {
+            if(password_verify($password, $row['pass'])) {
                 $_SESSION['account'] = $account;
-                // header('Location: index.php');
             }
         }
     } 
@@ -41,9 +40,10 @@ if(isset($_POST['login'])) {
         </header>
         <article>
             <div class="content">
-                <?php if(isset($_SESIION['account'])): ?>
+                <?php if(isset($_SESSION['account'])): ?>
                     <div class="top-wrapper">
-                        <h2>ようこそ</h2>
+                        <h2>チャットへようこそ</h2>
+                        <p><a href="chat.php">チャットへいく</a></p>
                     </div>
                     <div class="form-wrapper">
 
@@ -61,7 +61,7 @@ if(isset($_POST['login'])) {
                             <input type="submit" value="ログイン" name="login">
                         </form>
                     </div>
-                <?php endif ?>
+                <?php endif; ?>
                 
             </div>
         </article>
