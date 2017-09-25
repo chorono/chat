@@ -40,20 +40,13 @@ html,body {
 }
 
 .chat-box {
-    display: inline-block;
+    display: block;
     width: 100%;
     color: white;
 }
 
-.chat-text {
-    display: block;
-    max-width: 100%;
-    padding: 7px;
-    margin: 5px;
-    border-radius: 10px;
-}
-
 .chat-right {
+    display: block;
     float: right;
     background-color: #0084ff;
 }
@@ -69,4 +62,12 @@ html,body {
     font-size: 10px;
     color: #AAAAAA;
     background-color: transparent;
+}
+
+.chat-text {
+    display: block;
+    max-width: 100%;
+    padding: 7px;
+    margin: 5px;
+    border-radius: 10px;
 }

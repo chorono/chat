@@ -35,30 +35,30 @@ $statement = $pdo->query('SELECT * FROM chattexts');
                 <?php else: ?>
                 <div class="chat-wrapper">
                     <div class="chat-body">
-                            <?php while ($chattext = $statement->fetch(PDO::FETCH_ASSOC)): ?>
-                                <!-- ユーザーが投稿者と同一だったら色を変えて右側に表示 -->
-                                <?php if($chattext['account'] === $_SESSION['account']): ?>
-                                    <div class="chat-box">
-                                        <div class="chat-account chat-right">
-                                            <p><?php echo h($chattext['account'])?></p>
-                                        </div>
-                                        <div class="chat-text chat-right">
-                                            <?php echo $chattext['id']?>
-                                            <?php echo nl2br(h($chattext['chattext']))?>
-                                        </div>
+                    <!-- ユーザーが投稿者と同一だったら色を変えて右側に表示 -->
+                        <?php while ($chattext = $statement->fetch(PDO::FETCH_ASSOC)): ?>
+                            <?php if($chattext['account'] === $_SESSION['account']): ?>
+                                <div class="chat-box ">
+                                    <div class="chat-account chat-right">
+                                        <p><?php echo h($chattext['account'])?></p>
                                     </div>
-                                <?php else: ?>
-                                    <div class="chat-box">
-                                        <div class="chat-account chat-left">
-                                            <p><?php echo h($chattext['account'])?></p>
-                                        </div>
-                                        <div class="chat-text chat-left">
-                                            <?php echo $chattext['id']?>
-                                            <?php echo nl2br(h($chattext['chattext']))?>
-                                        </div>
+                                    <div class="chat-text chat-right">
+                                        <?php echo $chattext['id']?>
+                                        <?php echo nl2br(h($chattext['chattext']))?>
                                     </div>
-                                <?php endif ?>
-                            <?php endwhile ?>
+                                </div>
+                            <?php else: ?>
+                                <div class="chat-box">
+                                    <div class="chat-account chat-left">
+                                        <p><?php echo h($chattext['account'])?></p>
+                                    </div>
+                                    <div class="chat-text chat-left">
+                                        <?php echo $chattext['id']?>
+                                        <?php echo nl2br(h($chattext['chattext']))?>
+                                    </div>
+                                </div>
+                            <?php endif ?>
+                        <?php endwhile ?>
                     </div>
                     <div class="chat-input">
                         <form method="POST" action="appear.php">
