@@ -55,12 +55,18 @@ html,body {
 
 .chat-right {
     float: right;
+}
+
+.chat-right .chat-text {
     background-color: #0084ff;
 }
 
 .chat-left {
     float: left;
-    background-color: #AAAAAA;
+}
+
+.chat-left .chat-text {
+    background-color: #aaa;
 }
 
 .chat-account {
@@ -69,4 +75,8 @@ html,body {
     font-size: 10px;
     color: #AAAAAA;
     background-color: transparent;
+}
+
+.chat-right .chat-account {
+    text-align: right;
 }
