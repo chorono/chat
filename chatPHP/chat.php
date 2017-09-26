@@ -35,8 +35,8 @@ $statement = $pdo->query('SELECT * FROM chattexts');
                 <?php else: ?>
                 <div class="chat-wrapper">
                     <div class="chat-body">
+                        <!-- ユーザーが投稿者と同一だったら色を変えて右側に表示 -->
                         <?php while ($chattext = $statement->fetch(PDO::FETCH_ASSOC)): ?>
-                            <!-- ユーザーが投稿者と同一だったら色を変えて右側に表示 -->
                             <?php $chatPos = ($chattext['account'] === $_SESSION['account']) ? 'right' : 'left'?>
                             <div class="chat-box">
                                 <div class="chat-<?=$chatPos?>">
@@ -53,7 +53,7 @@ $statement = $pdo->query('SELECT * FROM chattexts');
                     </div>
                     <div class="chat-input">
                         <form method="POST" action="appear.php">
-                            <input type="text" name="chattext">
+                            <input type="text" name="chattext" maxlength="10" required>
                             <input type="submit" value="送信">
                         </form>
                     </div>
