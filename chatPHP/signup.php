@@ -33,11 +33,11 @@ session_start()
                         <table>
                             <tr>
                                 <th><label for="account">ユーザー名</label></th>
-                                <td><input type="text" name="account"></td>
+                                <td><input type="text" name="account" minlength="4" maxlength="24" required></td>
                             </tr>
                             <tr>
                                 <th><label for="password">パスワード</label></th>
-                                <td><input type="password" name="password"></td>
+                                <td><input type="password" name="password" minlength="4" maxlength="24" required></td>
                             </tr>
                         </table>
                         <input type="submit" value="登録">

@@ -21,6 +21,9 @@
                 <div class="top-wrapper">
                     <h2>ログアウト</h2>
                 </div>
+                <div class="comment-wrapper">
+                    <p>ログアウトしました</p>
+                </div>
             </div>
         </article>
     </div>

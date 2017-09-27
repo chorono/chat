@@ -36,24 +36,37 @@ html,body {
 .chat-body {
     width: 100%;
     height: 500px;
+    overflow: scroll;
     border: solid 1px #CCC;
 }
 
 .chat-box {
-    display: block;
+    display: inline-block;
     width: 100%;
     color: white;
 }
 
-.chat-right {
+.chat-text {
     display: block;
+    padding: 7px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.chat-right {
     float: right;
+}
+
+.chat-right .chat-text {
     background-color: #0084ff;
 }
 
 .chat-left {
     float: left;
-    background-color: #AAAAAA;
+}
+
+.chat-left .chat-text {
+    background-color: #aaa;
 }
 
 .chat-account {
@@ -64,10 +77,6 @@ html,body {
     background-color: transparent;
 }
 
-.chat-text {
-    display: block;
-    max-width: 100%;
-    padding: 7px;
-    margin: 5px;
-    border-radius: 10px;
+.chat-right .chat-account {
+    text-align: right;
 }
