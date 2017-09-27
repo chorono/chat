@@ -1,14 +1,8 @@
 <?php
 require_once __DIR__ . '/common.php';
 session_start();
-try {
-    $pdo = new PDO('mysql:dbname=sql_chat_1;host=localhost', 'root', 'root');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-} catch (Exception $e) {
-    exit($e->getMessage());
-}
-$statement = $pdo->query('SELECT * FROM chattexts');
+
+$statement = dbConnect()->query('SELECT * FROM chattexts');
 ?>
 <!DOCTYPE html>
 <html>
