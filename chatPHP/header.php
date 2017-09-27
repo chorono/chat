@@ -2,7 +2,7 @@
     <div class="nav-left">
         <p><?php 
         session_start();
-        echo (isset($_SESSION['account']) ? ($_SESSION['account']) : 'ログイン情報無し'); ?></p>
+        echo (isset($_SESSION['account']) ? ($_SESSION['account'].'さんようこそ') : 'ログイン情報無し'); ?></p>
     </div>
     <div class="nav-right">
         <nav>

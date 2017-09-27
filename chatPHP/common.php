@@ -19,6 +19,11 @@ function h($str) {
     return htmlspecialchars($str, ENT_QUOTES);
 }
 
+/**
+ * アカウント名、パスワードの入力チェック
+ * @param $account,$password
+ * @return boolean
+ */
 function inputAuth($account,$password) {
     if(!empty($account) && !empty($password)) {
     // ユーザー名チェック
@@ -38,6 +43,11 @@ function inputAuth($account,$password) {
     }
 }
 
+/**
+ * アカウント名の重複チェック
+ * @param $account
+ * @return boolean
+ */
 function accountAuth($account){
     try {
         $pdo = new PDO('mysql:dbname=sql_chat_1;host=localhost', 'root', 'root');
