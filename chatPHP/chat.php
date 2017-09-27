@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/common.php';
+session_start();
 try {
     $pdo = new PDO('mysql:dbname=sql_chat_1;host=localhost', 'root', 'root');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
