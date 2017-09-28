@@ -7,7 +7,7 @@ function dbConnect(){
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         return $pdo;
-    }catch (Exception $e) {
+    } catch (Exception $e) {
         exit($e->getMessage());
     }
 }
@@ -31,17 +31,17 @@ function inputAuth($account,$password) {
     // ユーザー名チェック
         if(!preg_match('/^[0-9a-zA-Z]{4,24}$/', $account)) {
             $_SESSION['status'] = 'error';
-            return FALSE;
+            return false;
         // パスワードチェック
-        }elseif(!preg_match('/^[0-9a-zA-Z]{4,24}$/', $password)) {
+        } elseif (!preg_match('/^[0-9a-zA-Z]{4,24}$/', $password)) {
             $_SESSION['status'] = 'error';
-            return FALSE;
-        }else {
-            return TRUE;
+            return false;
+        } else {
+            return true;
         }
-    }else {
+    } else {
         $_SESSION['status'] = 'error';
-        return FALSE;
+        return false;
     }
 }
 
@@ -61,8 +61,8 @@ function accountAuth($account){
     $statement = $pdo->query('SELECT * FROM accounts');
     while($row = $statement->fetch()) {
         if($row['account'] === $account) {
-            return TRUE;
+            return true;
         }
     }
-    return FALSE;
+    return false;
 }

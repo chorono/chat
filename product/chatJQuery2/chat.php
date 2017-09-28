@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/common.php';
 session_start();
+$pdo = dbConnect();
 $statement = $pdo->query('SELECT * FROM chattexts');
 ?>
 <!DOCTYPE html>

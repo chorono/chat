@@ -4,14 +4,15 @@ session_start();
 unset($_SESSION['status']);
 if(isset($_POST['login'])) {
     if(inputAuth($_POST['account'],$_POST['password'])) {
+        $pdo = dbConnect();
         $account = filter_input(INPUT_POST, 'account');
         $password = filter_input(INPUT_POST, 'password');
-        $statement = dbConnect()->prepare('SELECT * FROM accounts WHERE account = ?');
+        $statement = $pdo->prepare('SELECT * FROM accounts WHERE account = ?');
         if($statement->execute(array($account))) {
             while ($row = $statement->fetch()){
                 if(password_verify($password, $row['pass'])) {
                     $_SESSION['account'] = $account;
-                    }else {
+                    } else {
                     $_SESSION['status'] = 'error';
                 }
             }
