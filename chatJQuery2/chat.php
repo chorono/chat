@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/common.php';
 session_start();
-
 $statement = $pdo->query('SELECT * FROM chattexts');
 ?>
 <!DOCTYPE html>
@@ -13,7 +12,7 @@ $statement = $pdo->query('SELECT * FROM chattexts');
     <title>チャット</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-
+    <script src="./js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -58,5 +57,10 @@ $statement = $pdo->query('SELECT * FROM chattexts');
             </div>
         </article>
     </div>
+    <script>
+        $(function(){
+            $('.chat-body').scrollTop($('.chat-body')[0].scrollHeight);
+        })
+    </script>
 </body>
 </html>
