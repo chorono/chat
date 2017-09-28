@@ -100,3 +100,8 @@ header .content {
 .chat-right .chat-account {
     text-align: right;
 }
+
+.input-area {
+    width:300px;
+    height: 36px;
+}
