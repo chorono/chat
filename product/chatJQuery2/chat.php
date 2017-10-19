@@ -8,6 +8,7 @@ $statement = $pdo->query('SELECT * FROM chattexts');
 <html>
 <head>
     <?php include (dirname(__FILE__).'/htmlCommon/head.php'); ?>
+    <meta http-equiv="refresh" content="5" >
 </head>
 <body>
     <div class="wrapper">
